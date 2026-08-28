@@ -3425,14 +3425,12 @@ const whatsappLink =
 
 
 
-    <script src="config.js"></script>
+    <script src="catalog.js"></script>
 
     <script>
         (() => {
 
-            const API_BASE_URL =
-                (window.RAWNAQ_API_URL || "http://127.0.0.1:8000")
-                    .replace(/\/+$/, "");
+            const API_BASE_URL = "";
 
             const WHATSAPP_NUMBER = "201067588931";
 
@@ -3615,39 +3613,10 @@ const whatsappLink =
 
                 try {
 
-                    const response =
-                        await fetch(
-                            `${API_BASE_URL}/ask`,
-                            {
-                                method: "POST",
-
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
-
-                                body: JSON.stringify({
-                                    query,
-                                    exclude:
-                                        excludedProducts
-                                })
-                            }
-                        );
-
-                    let data = null;
-
-                    try {
-                        data = await response.json();
-                    } catch (_) {
-                        data = null;
-                    }
-
-                    if (!response.ok) {
-                        throw new Error(
-                            data?.detail
-                            || `HTTP ${response.status}`
-                        );
-                    }
+                    const data = window.rawnaqRecommend(
+                        query,
+                        excludedProducts
+                    );
 
                     if (!data?.product) {
                         addTextMessage(
