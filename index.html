@@ -3132,6 +3132,8 @@ footer{
 }
 </style>
 
+
+
 </head>
 
 
@@ -3290,24 +3292,18 @@ footer{
 
 
                     <button class="category-item" data-filter="مخمرية">
-
                         <div class="category-icon">
                             <i class="fa-solid fa-jar"></i>
                         </div>
-
                         <span>مخمريات</span>
-
                     </button>
 
 
                     <button class="category-item" data-filter="لوشن">
-
                         <div class="category-icon">
                             <i class="fa-solid fa-pump-soap"></i>
                         </div>
-
                         <span>لوشن</span>
-
                     </button>
 
 
@@ -3957,7 +3953,7 @@ footer{
             {
                 name: "جوتشي روشي (Gucci Rush)",
 
-                type: "لوشن",
+                type: "حريمي",
 
                 season: "ربيعي / خريفي",
 
@@ -3974,7 +3970,7 @@ footer{
                     "https://raw.githubusercontent.com/abdelrahmanabdulaty010644-sys/rawnaq-perfumes/main/WhatsApp%20Image%202026-08-24%20at%206.26.36%20PM%20(1).jpeg",
 
                 group: [
-                    "لوشن",
+                    "حريمي",
                     "صيفي"
                 ]
             },
@@ -3983,7 +3979,7 @@ footer{
             {
                 name: "The Only One (D&G)",
 
-                type: "مخمريه",
+                type: "حريمي",
 
                 season: "خريفي / شتوي",
 
@@ -4000,9 +3996,10 @@ footer{
                     "https://raw.githubusercontent.com/abdelrahmanabdulaty010644-sys/rawnaq-perfumes/main/WhatsApp%20Image%202026-08-24%20at%206.26.36%20PM%20(2).jpeg",
 
                 group: [
-                    "مخمريات",
+                    "حريمي",
                     "شتوي",
-                    "شوغري"
+                    "شوغري",
+                    "مخمرية"
                 ]
             },
 
@@ -4133,7 +4130,8 @@ footer{
 
                 group: [
                     "رجالي",
-                    "صيفي"
+                    "صيفي",
+                    "لوشن"
                 ]
             },
 
@@ -4141,7 +4139,7 @@ footer{
             {
                 name: "جود جيرل",
 
-                type: "مخمريه",
+                type: "حريمي",
 
                 season: "خريفي / شتوي",
 
@@ -4158,7 +4156,7 @@ footer{
                     "https://raw.githubusercontent.com/abdelrahmanabdulaty010644-sys/rawnaq-perfumes/main/WhatsApp%20Image%202026-08-24%20at%206.26.36%20PM%20(2).jpeg",
 
                 group: [
-                    "مخمريات",
+                    "حريمي",
                     "شتوي",
                     "شوغري"
                 ]
@@ -4292,7 +4290,8 @@ footer{
 
                 group: [
                     "مسك",
-                    "شتوي"
+                    "شتوي",
+                    "لوشن"
                 ]
             }
 
@@ -4325,14 +4324,22 @@ footer{
                 return true;
             }
 
+            const groups = Array.isArray(product.group) ? product.group : [];
+
+            // الفئات الخاصة تعتمد على تصنيف المنتج نفسه فقط
+            // حتى لا تظهر منتجات عشوائية عند الضغط على مخمريات أو لوشن.
+            if (filter === "مخمرية" || filter === "لوشن") {
+                return groups.includes(filter);
+            }
+
             return (
-                product.group.includes(filter)
+                groups.includes(filter)
                 ||
-                product.type.includes(filter)
+                String(product.type || "").includes(filter)
                 ||
-                product.season.includes(filter)
+                String(product.season || "").includes(filter)
                 ||
-                product.category.includes(filter)
+                String(product.category || "").includes(filter)
             );
         }
 
@@ -4529,6 +4536,10 @@ const whatsappLink =
                         activeFilter =
                             button.dataset.filter;
 
+                        // عند اختيار فئة جديدة نعرض محتواها كاملًا
+                        if (searchInput) {
+                            searchInput.value = "";
+                        }
 
                         renderProducts();
                     }
