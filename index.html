@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -2085,6 +2085,407 @@ a[href*="api.whatsapp.com/send"]:hover {
 }
 </style>
 
+
+<style id="rawnaq-premium-v2">
+:root{
+    --off-white:#f7f2e8;
+    --off-white-2:#ede5d6;
+    --cream:#fffaf0;
+    --gold:#d4af37;
+    --gold-soft:#e5c86d;
+}
+
+/* Typography */
+*{
+    font-family:"IBM Plex Sans Arabic", sans-serif !important;
+}
+body{
+    background:
+        radial-gradient(circle at 50% 0%, rgba(247,242,232,.045), transparent 26%),
+        linear-gradient(180deg,#171717 0%,#1b1916 42%,#151515 100%) !important;
+}
+h1,h2,h3,.section-title,.logo-text,.footer-brand h3{
+    font-family:"Noto Naskh Arabic", serif !important;
+    font-style:italic;
+    letter-spacing:.1px;
+}
+.section-title{
+    color:var(--off-white) !important;
+    font-size:clamp(28px,4vw,39px) !important;
+}
+.section-subtitle{
+    color:#dcd3c4 !important;
+}
+
+/* Header/navigation - visible on laptops and scrollable on narrow screens */
+header{
+    display:grid !important;
+    grid-template-columns:auto minmax(0,1fr) !important;
+    align-items:center !important;
+    gap:20px !important;
+    padding:10px 4% !important;
+    background:rgba(20,19,17,.96) !important;
+    border-bottom:1px solid rgba(247,242,232,.18) !important;
+}
+nav{
+    display:flex !important;
+    width:100% !important;
+    max-width:100% !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    scrollbar-width:none;
+    padding:4px 2px !important;
+    gap:22px !important;
+}
+nav::-webkit-scrollbar{display:none}
+nav a{
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    color:var(--off-white) !important;
+    font-size:13px !important;
+}
+@media(max-width:500px){
+    nav a:nth-child(2),nav a:nth-child(3){display:inline-flex !important}
+    header{grid-template-columns:auto 1fr !important;padding:8px 3% !important}
+    .logo-text{font-size:17px !important}
+}
+
+/* More off-white throughout */
+.products-section{background:linear-gradient(180deg,#171717,#1b1916) !important}
+.pricing-section{
+    background:
+        radial-gradient(circle at 15% 10%,rgba(247,242,232,.06),transparent 25%),
+        linear-gradient(180deg,#221f1a,#171717) !important;
+}
+.search-box input{
+    background:rgba(247,242,232,.075) !important;
+    border-color:rgba(247,242,232,.26) !important;
+    color:var(--off-white) !important;
+}
+.card{
+    border-color:rgba(247,242,232,.18) !important;
+}
+.card:hover{border-color:rgba(212,175,55,.72) !important}
+.tag{
+    border-color:rgba(247,242,232,.22) !important;
+}
+
+/* Horizontal controls */
+.horizontal-section-head{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:0 auto 7px;
+    min-height:32px;
+}
+.scroll-label{
+    color:#cfc5b5;
+    font-size:11px;
+    white-space:nowrap;
+}
+.scroll-arrow{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    border:1px solid rgba(247,242,232,.33);
+    background:rgba(247,242,232,.06);
+    color:var(--off-white);
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;
+}
+.scroll-arrow:hover{
+    background:var(--gold);
+    color:#171717;
+    border-color:var(--gold);
+}
+.scroll-dots{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.scroll-dots button{
+    width:6px;
+    height:6px;
+    border:0;
+    padding:0;
+    border-radius:50%;
+    background:rgba(247,242,232,.35);
+    cursor:pointer;
+}
+.scroll-dots button.active{
+    width:17px;
+    border-radius:8px;
+    background:var(--gold);
+}
+
+/* Categories */
+.categories-wrapper{
+    position:relative;
+    border-top:1px solid rgba(247,242,232,.11);
+    border-bottom:1px solid rgba(247,242,232,.11);
+    padding:10px 0 5px;
+}
+.category-scroll{
+    justify-content:flex-start !important;
+    scroll-snap-type:x proximity;
+    overscroll-behavior-x:contain;
+}
+.category-item{scroll-snap-align:center}
+.category-icon{
+    border-color:rgba(247,242,232,.30) !important;
+    background:radial-gradient(circle at 35% 25%,rgba(247,242,232,.13),rgba(212,175,55,.05)) !important;
+}
+.category-item.active .category-icon{
+    background:linear-gradient(135deg,var(--gold),#f0da88) !important;
+}
+
+/* Price cards side-by-side with horizontal scrolling */
+.price-tables-grid{
+    display:flex !important;
+    gap:18px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    padding:7px 3px 16px !important;
+}
+.price-tables-grid::-webkit-scrollbar{display:none}
+.price-card{
+    flex:0 0 min(390px,88vw) !important;
+    width:min(390px,88vw) !important;
+    scroll-snap-align:center;
+    border:1px solid rgba(247,242,232,.28) !important;
+    background:
+        linear-gradient(145deg,rgba(247,242,232,.065),rgba(212,175,55,.045)),
+        #1d1b18 !important;
+}
+.price-card h3{
+    color:var(--gold-soft) !important;
+    margin-bottom:4px !important;
+}
+.price-card-desc{
+    min-height:42px;
+    color:#ded5c6;
+    font-size:11px;
+    line-height:1.7;
+    text-align:center;
+    padding:0 12px 12px;
+}
+.price-table th{
+    color:var(--off-white) !important;
+}
+.price-table td{
+    border-color:rgba(247,242,232,.10) !important;
+}
+
+/* Reviews: compact rectangles sized to content */
+.reviews-section{
+    background:
+        radial-gradient(circle at 50% 0,rgba(247,242,232,.055),transparent 30%),
+        #171717 !important;
+}
+.reviews-grid{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:12px !important;
+    max-width:1050px;
+    margin:auto;
+}
+.review-card{
+    flex:0 1 315px !important;
+    width:auto !important;
+    min-height:0 !important;
+    padding:16px 17px !important;
+    border:1px solid rgba(247,242,232,.58) !important;
+    border-radius:14px !important;
+    background:rgba(247,242,232,.035) !important;
+    box-shadow:none !important;
+}
+.review-card p{
+    margin:0 !important;
+    color:#f0e9dd !important;
+    font-size:13px !important;
+    line-height:1.9 !important;
+}
+.review-card .stars,.stars{
+    color:var(--gold) !important;
+    margin-bottom:7px !important;
+    letter-spacing:1px;
+}
+.review-quote{opacity:.38}
+.review-actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:9px !important;
+    margin-top:20px;
+}
+.reviews-more-btn,.review-add-btn{
+    border:1px solid rgba(247,242,232,.38) !important;
+    background:rgba(247,242,232,.06) !important;
+    color:var(--off-white) !important;
+    border-radius:22px !important;
+    padding:9px 17px !important;
+}
+.review-add-btn{
+    background:linear-gradient(135deg,var(--gold),#ead077) !important;
+    color:#171717 !important;
+    border-color:var(--gold) !important;
+}
+
+/* AI: prevent background page from scrolling */
+body.ai-chat-open{
+    overflow:hidden !important;
+    overscroll-behavior:none !important;
+}
+.ai-chat-panel{
+    overscroll-behavior:contain;
+    border-color:rgba(247,242,232,.30) !important;
+}
+.ai-chat-messages{
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+}
+.ai-chat-input-wrap{
+    border-top:1px solid rgba(247,242,232,.16) !important;
+}
+.ai-chat-input-wrap input{
+    color:var(--off-white) !important;
+    border-color:rgba(247,242,232,.28) !important;
+}
+
+/* Gold order buttons */
+.btn-card,
+.order-btn,
+.order-now,
+.whatsapp-order-btn,
+a[href*="wa.me"],
+a[href*="api.whatsapp.com/send"]{
+    background:linear-gradient(135deg,#d4af37,#ecd173) !important;
+    color:#171717 !important;
+    border-color:#d4af37 !important;
+}
+.footer-social a{
+    background:rgba(247,242,232,.05) !important;
+    color:var(--gold) !important;
+}
+
+/* Compact contact/footer */
+footer{
+    position:relative;
+    margin-top:38px !important;
+    padding:32px 5% 15px !important;
+    background:linear-gradient(180deg,#171512,#0f0f0f) !important;
+    border-top:1px solid rgba(247,242,232,.22) !important;
+}
+footer::before{display:none !important}
+.footer-compact{
+    max-width:980px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.25fr 1fr auto;
+    align-items:center;
+    gap:26px;
+}
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-align:right !important;
+    padding:0 !important;
+}
+.footer-logo{
+    width:82px !important;
+    height:82px !important;
+    margin:0 !important;
+    border-radius:14px !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.25) !important;
+}
+.footer-brand h3{
+    color:var(--gold-soft);
+    margin:0 0 3px;
+    font-size:20px;
+}
+.footer-brand p{
+    margin:0 !important;
+    max-width:370px !important;
+    font-size:11px !important;
+    line-height:1.7 !important;
+}
+.footer-contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+.footer-contact-list>a,.footer-contact-list>div{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--off-white);
+    text-decoration:none;
+    font-size:12px;
+    background:transparent !important;
+}
+.footer-contact-list i{
+    width:27px;
+    height:27px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(247,242,232,.25);
+    border-radius:50%;
+    color:var(--gold);
+}
+.footer-social{
+    margin:0 !important;
+    gap:7px !important;
+}
+.footer-social a{
+    width:34px !important;
+    height:34px !important;
+    font-size:14px !important;
+}
+.footer-bottom{
+    margin:18px auto 0 !important;
+    padding:12px 0 0 !important;
+}
+@media(max-width:760px){
+    .footer-compact{
+        grid-template-columns:1fr;
+        gap:17px;
+    }
+    .footer-brand{
+        justify-content:flex-start;
+    }
+    .footer-contact-list{
+        width:100%;
+    }
+    .footer-social{
+        justify-content:flex-start !important;
+    }
+    .footer-logo{
+        width:68px !important;
+        height:68px !important;
+    }
+    .horizontal-section-head{
+        justify-content:space-between;
+        padding:0 2px;
+    }
+    .scroll-label{
+        max-width:150px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+}
+</style>
+
 </head>
 
 
@@ -2179,7 +2580,18 @@ a[href*="api.whatsapp.com/send"]:hover {
 
             <div class="categories-wrapper">
 
-                <div class="category-scroll">
+                <div class="horizontal-section-head">
+                    <button class="scroll-arrow category-next" type="button" aria-label="التالي">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="scroll-dots category-dots" aria-hidden="true"></div>
+                    <span class="scroll-label">اسحبي للتنقل بين الأقسام</span>
+                    <button class="scroll-arrow category-prev" type="button" aria-label="السابق">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+
+                <div class="category-scroll" id="category-scroll">
 
 
                     <button class="category-item active" data-filter="all">
@@ -2237,6 +2649,28 @@ a[href*="api.whatsapp.com/send"]:hover {
                     </button>
 
 
+                    <button class="category-item" data-filter="مخمرية">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-jar"></i>
+                        </div>
+
+                        <span>مخمريات</span>
+
+                    </button>
+
+
+                    <button class="category-item" data-filter="لوشن">
+
+                        <div class="category-icon">
+                            <i class="fa-solid fa-pump-soap"></i>
+                        </div>
+
+                        <span>لوشن</span>
+
+                    </button>
+
+
                     <button class="category-item" data-filter="صيفي">
 
                         <div class="category-icon">
@@ -2283,6 +2717,7 @@ a[href*="api.whatsapp.com/send"]:hover {
                 <input
                     id="product-search"
                     type="text"
+                    list="perfume-name-suggestions"
                     placeholder="دور على عطرك..."
                 >
 
@@ -2343,7 +2778,18 @@ a[href*="api.whatsapp.com/send"]:hover {
         </p>
 
 
-        <div class="price-tables-grid">
+        <div class="horizontal-section-head price-scroll-head">
+            <button class="scroll-arrow price-next" type="button" aria-label="التالي">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="scroll-dots price-dots" aria-hidden="true"></div>
+            <span class="scroll-label">حرّكي القائمة لمقارنة أنواع الأسعار</span>
+            <button class="scroll-arrow price-prev" type="button" aria-label="السابق">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <div class="price-tables-grid" id="price-scroll">
 
 
             <div class="price-card">
@@ -2352,6 +2798,7 @@ a[href*="api.whatsapp.com/send"]:hover {
                     <i class="fa-solid fa-spray-can"></i>
                     العطور العادية
                 </h3>
+                <p class="price-card-desc">للروائح الأساسية المتوفرة يومياً بأكثر من حجم وزجاجة.</p>
 
 
                 <table class="price-table">
@@ -2417,6 +2864,7 @@ a[href*="api.whatsapp.com/send"]:hover {
                     <i class="fa-solid fa-gem"></i>
                     الإصدارات الخاصة
                 </h3>
+                <p class="price-card-desc">للتركيبات والإصدارات المميزة مثل خمرة وأربابورا وعود مضاوي.</p>
 
 
                 <table class="price-table">
@@ -2482,6 +2930,7 @@ a[href*="api.whatsapp.com/send"]:hover {
                     <i class="fa-solid fa-bottle-droplet"></i>
                     رول المسك
                 </h3>
+                <p class="price-card-desc">مسكات رول بأحجام صغيرة مناسبة للاستخدام اليومي والتوزيعات.</p>
 
 
                 <table class="price-table">
@@ -2540,6 +2989,9 @@ a[href*="api.whatsapp.com/send"]:hover {
     <!-- =========================
          AI PERFUME ASSISTANT
     ========================== -->
+
+    
+    <datalist id="perfume-name-suggestions"></datalist>
 
     <button
         id="ai-chat-toggle"
@@ -2602,6 +3054,7 @@ a[href*="api.whatsapp.com/send"]:hover {
 
             <input
                 id="ai-chat-input"
+                list="perfume-name-suggestions"
                 type="text"
                 autocomplete="off"
                 placeholder="اكتب مواصفات العطر اللي بتحبه..."
@@ -2627,7 +3080,7 @@ a[href*="api.whatsapp.com/send"]:hover {
             <div class="section-head">
                 <div>
                     <h2>آراء عملائنا</h2>
-                    <p>كلام عملائنا عن تجربتهم مع رونق.</p>
+                    <p>تجارب حقيقية تساعدك تختار بثقة.</p>
                 </div>
             </div>
 
@@ -2643,57 +3096,40 @@ a[href*="api.whatsapp.com/send"]:hover {
 
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
-                    <div class="stars">★★★★★</div>
-                    <p>والله البريفيوم والمسك تحفة بجد وكل اللي هنا قالوا عليه حلو أوي، تسلم إيدك يا غلاوة 💗</p>
+                    <div class="stars">★★★★☆</div>
+                    <p>العطر ثابت جدًا وفوحانه ممتاز، وصلني بسرعة والتغليف كان شيك جدًا.</p>
                 </article>
-
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
                     <div class="stars">★★★★★</div>
-                    <p>الأوردر تحفة دي كلمة قليلة بجد والمخمريّة في حتة تانية لوحدها 😍❤️❤️❤️❤️ وشكرًا على الهدية العسولة دي 😘</p>
+                    <p>أول مرة أجرب من البراند ومبهورة بالجودة، الريحة فخمة وقريبة من العطور الأصلية.</p>
                 </article>
-
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
                     <div class="stars">★★★★★</div>
-                    <p>آه جميل أوي ما شاء الله، تسلم إيديكم 🥰</p>
+                    <p>خدمة العملاء محترمة وساعدوني أختار العطر المناسب، أكيد هطلب تاني.</p>
                 </article>
-
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
                     <div class="stars">★★★★★</div>
-                    <p>البادي لوشن تحفة تحفة وريحته ثابتة ما شاء الله، ربنا يرزقك يارب ❤️</p>
+                    <p>ثبات العطر أكتر من المتوقع، وقعد معايا طول اليوم.</p>
                 </article>
-
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
-                    <div class="stars">★★★★★</div>
-                    <p>عامة كل حاجة باخدها بتكون تحفة ❤️😍</p>
+                    <div class="stars">★★★★☆</div>
+                    <p>التغليف ممتاز والعطر وصل بحالة رائعة، وأنصح أي حد يجربه.</p>
                 </article>
-
                 <article class="review-card">
                     <i class="fa-solid fa-quote-left review-quote"></i>
-                    <div class="stars">★★★★★</div>
-                    <p>رائحة المسك ما شاء الله جميلة جدًا 😌🤍 ربنا يرزقك حبيبتي من واسع فضله، وتسلميلي هدية رقيقة زي صاحبتها 🥰🥰🥰</p>
-                </article>
-
-                <article class="review-card">
-                    <i class="fa-solid fa-quote-left review-quote"></i>
-                    <div class="stars">★★★★★</div>
-                    <p>المسكات روايحهم حلوة أوي، كلهم أحلى من بعض، وعجبني أوي بكرات ورمان والطهارة عمومًا. أصلًا شكل التوزيعات حاجة عسل أوي، ربنا يوفقكم يا ريحة 🥰❤️❤️❤️</p>
-                </article>
-
-                <article class="review-card">
-                    <i class="fa-solid fa-quote-left review-quote"></i>
-                    <div class="stars">★★★★★</div>
-                    <p>توزيعات العيد خرافة بجد، تحسي كده إنها حاجة مختلفة. براند رونق قوي حرفيًا، بيكونوا بيعملوا حاجات تحفة كده 💗💗💗💗</p>
+                    <div class="stars">★★★★☆</div>
+                    <p>العطر جميل جدًا وفوحانه حلو، والسعر مناسب مقابل الجودة.</p>
                 </article>
 
             </div>
 
             <div class="review-actions">
-                <button id="reviews-more-btn" class="reviews-more-btn" type="button">المزيد</button>
-                <button id="review-add-btn" class="review-add-btn" type="button">شاركنا رأيك</button>
+                <button id="reviews-more-btn" class="reviews-more-btn" type="button">عرض المزيد من الآراء</button>
+                <button id="review-add-btn" class="review-add-btn" type="button">اكتب تقييمك</button>
             </div>
 
         </div>
@@ -2703,7 +3139,7 @@ a[href*="api.whatsapp.com/send"]:hover {
         <div class="review-form-card">
 
             <div class="review-form-head">
-                <h3>شاركنا تجربتك مع رونق</h3>
+                <h3>احكيلنا عن تجربتك مع رونق</h3>
                 <button id="review-modal-close" class="review-modal-close" type="button">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -2739,49 +3175,36 @@ a[href*="api.whatsapp.com/send"]:hover {
 
 
     <footer id="contact">
-        <div class="footer-grid">
+        <div class="footer-compact">
+            <div class="footer-brand">
+                <img class="footer-logo" src="assets/rawnaq-logo.jpeg" alt="Rawnaq Perfumes">
+                <div>
+                    <h3>رونق للعطور والمسكات</h3>
+                    <p>اختيارات عطرية أنيقة، طلب سريع وخدمة قريبة منك.</p>
+                </div>
+            </div>
 
-            
-
-            <div class="footer-col">
-                <h3 class="footer-title">معلومات التواصل</h3>
-                <div class="footer-contact-item">
+            <div class="footer-contact-list">
+                <a href="https://api.whatsapp.com/send?phone=201067588931" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-whatsapp"></i>
                     <span>01067588931</span>
-                </div>
-                <div class="footer-contact-item">
+                </a>
+                <div>
                     <i class="fa-solid fa-location-dot"></i>
                     <span>مصر</span>
                 </div>
-                <div class="footer-contact-item">
+                <div>
                     <i class="fa-solid fa-clock"></i>
                     <span>متاحون لخدمتك يومياً</span>
                 </div>
             </div>
 
-            <div class="footer-col footer-brand">
-                <img
-                    class="footer-logo"
-                    src="assets/rawnaq-logo.jpeg"
-                    alt="Rawnaq Perfumes"
-                >
-                <p>
-                    رونق للعطور والمسكات، حيث تمتزج الفخامة بالأصالة
-                    لتصنع بصمتك الخاصة وتدوم معك في كل لحظة.
-                </p>
-
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=201067588931" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=201067588931" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
             </div>
-
-            
-
-            
-
         </div>
 
         <div class="footer-bottom">
@@ -3733,7 +4156,7 @@ const whatsappLink =
 
             moreBtn?.addEventListener("click", () => {
                 const isOpen = reviewsGrid.classList.toggle("show-all");
-                moreBtn.textContent = isOpen ? "إخفاء" : "المزيد";
+                moreBtn.textContent = isOpen ? "عرض أقل" : "عرض المزيد من الآراء";
             });
 
 
@@ -3772,6 +4195,118 @@ const whatsappLink =
             });
         })();
     </script>
+
+
+<script id="rawnaq-premium-v2-js">
+(() => {
+    const norm = (v) => String(v || "")
+        .normalize("NFKD")
+        .replace(/[\u064B-\u065F\u0670]/g, "")
+        .replace(/[أإآ]/g, "ا")
+        .replace(/ى/g, "ي")
+        .replace(/ة/g, "ه")
+        .trim()
+        .toLowerCase();
+
+    // Build perfume-name suggestions for both search fields.
+    const datalist = document.getElementById("perfume-name-suggestions");
+    const names = new Set();
+    if (Array.isArray(window.RAWNAQ_CATALOG)) {
+        window.RAWNAQ_CATALOG.forEach(p => p?.name && names.add(p.name));
+    }
+    if (typeof productsData !== "undefined" && Array.isArray(productsData)) {
+        productsData.forEach(p => p?.name && names.add(p.name));
+    }
+    if (datalist) {
+        datalist.innerHTML = [...names]
+            .sort((a,b) => a.localeCompare(b, "ar"))
+            .map(name => `<option value="${String(name).replace(/"/g, "&quot;")}"></option>`)
+            .join("");
+    }
+
+    // Make AI chat lock the background page, while chat itself remains scrollable.
+    const panel = document.getElementById("ai-chat-panel");
+    const toggle = document.getElementById("ai-chat-toggle");
+    const close = document.getElementById("ai-chat-close");
+
+    toggle?.addEventListener("click", () => {
+        document.body.classList.add("ai-chat-open");
+    });
+    close?.addEventListener("click", () => {
+        document.body.classList.remove("ai-chat-open");
+    });
+
+    // Generic horizontal scroll with dots + arrows.
+    function setupScroller(scrollerSelector, dotsSelector, prevSelector, nextSelector, itemSelector) {
+        const scroller = document.querySelector(scrollerSelector);
+        const dots = document.querySelector(dotsSelector);
+        const prev = document.querySelector(prevSelector);
+        const next = document.querySelector(nextSelector);
+        if (!scroller || !dots) return;
+
+        const items = [...scroller.querySelectorAll(itemSelector)];
+        if (!items.length) return;
+
+        dots.innerHTML = items.map((_, i) =>
+            `<button type="button" aria-label="انتقال ${i + 1}"></button>`
+        ).join("");
+
+        const dotButtons = [...dots.querySelectorAll("button")];
+
+        const nearestIndex = () => {
+            const center = scroller.scrollLeft + scroller.clientWidth / 2;
+            let best = 0;
+            let dist = Infinity;
+            items.forEach((item, i) => {
+                const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+                const d = Math.abs(itemCenter - center);
+                if (d < dist) { dist = d; best = i; }
+            });
+            return best;
+        };
+
+        const update = () => {
+            const idx = nearestIndex();
+            dotButtons.forEach((d, i) => d.classList.toggle("active", i === idx));
+        };
+
+        const go = (dir) => {
+            const idx = nearestIndex();
+            const target = Math.max(0, Math.min(items.length - 1, idx + dir));
+            items[target].scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
+        };
+
+        prev?.addEventListener("click", () => go(-1));
+        next?.addEventListener("click", () => go(1));
+
+        dotButtons.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                items[i].scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
+            });
+        });
+
+        scroller.addEventListener("scroll", () => requestAnimationFrame(update), {passive:true});
+        window.addEventListener("resize", update);
+        update();
+    }
+
+    setupScroller(
+        "#category-scroll",
+        ".category-dots",
+        ".category-prev",
+        ".category-next",
+        ".category-item"
+    );
+
+    setupScroller(
+        "#price-scroll",
+        ".price-dots",
+        ".price-prev",
+        ".price-next",
+        ".price-card"
+    );
+})();
+</script>
 
 </body>
 
