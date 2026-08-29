@@ -2486,6 +2486,255 @@ footer::before{display:none !important}
 }
 </style>
 
+
+<style id="rawnaq-premium-v3">
+
+/* ===== Restore the original elegant category icon look ===== */
+.category-icon{
+    width:72px !important;
+    height:72px !important;
+    border-radius:50% !important;
+    color:var(--primary) !important;
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(243,229,171,.18),
+            rgba(212,175,55,.05)
+        ) !important;
+    border:1px solid rgba(212,175,55,.35) !important;
+    box-shadow:none !important;
+}
+.category-item:hover .category-icon{
+    transform:translateY(-4px);
+    border-color:var(--primary) !important;
+}
+.category-item.active .category-icon{
+    background:var(--primary) !important;
+    color:#151515 !important;
+    border-color:var(--primary) !important;
+}
+
+/* ===== AI floating button: pen with stars ===== */
+.ai-chat-toggle{
+    overflow:visible !important;
+}
+.ai-chat-toggle > .fa-pen-nib{
+    transform:rotate(-18deg);
+    font-size:22px;
+}
+.ai-toggle-sparkles{
+    position:absolute;
+    top:5px;
+    right:5px;
+    color:#fff6cf;
+    font-size:11px;
+    line-height:1;
+    letter-spacing:1px;
+    text-shadow:0 0 9px rgba(255,240,170,.75);
+    pointer-events:none;
+}
+
+/* ===== Remove the little boxes around price next to order button ===== */
+.card-price-info{
+    padding:2px 0 8px !important;
+    margin:0 0 5px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    text-align:right !important;
+    color:#f0e3bd !important;
+}
+
+/* Price-scroll controls: clean, no little dots/boxes */
+.price-scroll-head{
+    justify-content:center !important;
+    gap:12px !important;
+}
+.price-scroll-head .price-dots{
+    display:none !important;
+}
+.price-scroll-label{
+    color:var(--off-white) !important;
+    font-size:12px !important;
+}
+.price-scroll-head .scroll-arrow{
+    width:auto !important;
+    height:auto !important;
+    border:0 !important;
+    background:transparent !important;
+    padding:5px 7px !important;
+    color:var(--gold) !important;
+    border-radius:0 !important;
+}
+.price-scroll-head .scroll-arrow:hover{
+    background:transparent !important;
+    color:var(--off-white) !important;
+}
+
+/* Reviews heading on the right */
+.reviews-section .section-title,
+.reviews-section .section-subtitle{
+    text-align:right !important;
+}
+.reviews-section .section-title::after{
+    margin-right:0 !important;
+    margin-left:auto !important;
+}
+.reviews-summary{
+    text-align:right !important;
+}
+
+/* ===== Footer ===== */
+footer{
+    padding:34px 5% 15px !important;
+}
+.footer-layout-v3{
+    max-width:1050px !important;
+    display:grid !important;
+    grid-template-columns:1.25fr .9fr auto !important;
+    grid-template-areas:"brand contact social";
+    align-items:start !important;
+    direction:rtl;
+    gap:30px !important;
+}
+.footer-brand-v3{
+    grid-area:brand;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:9px !important;
+    text-align:right !important;
+}
+.footer-brand-v3 .footer-logo{
+    width:90px !important;
+    height:90px !important;
+    object-fit:contain !important;
+    margin:0 !important;
+}
+.footer-brand-copy{
+    text-align:right;
+}
+.footer-brand-copy h3{
+    margin:0 0 3px !important;
+}
+.footer-brand-copy p{
+    margin:0 !important;
+    color:#efe7da !important;
+    font-size:12px !important;
+}
+
+.footer-contact-v3{
+    grid-area:contact;
+    text-align:right;
+}
+.footer-contact-v3 h4{
+    margin:0 0 12px;
+    color:var(--gold-soft);
+    font-family:"Noto Naskh Arabic",serif !important;
+    font-size:18px;
+    font-style:italic;
+}
+.footer-contact-list{
+    gap:9px !important;
+}
+.footer-contact-list>a,
+.footer-contact-list>div{
+    color:var(--off-white) !important;
+    background:transparent !important;
+}
+.footer-contact-list span{
+    color:var(--off-white) !important;
+}
+.footer-contact-list i{
+    flex:0 0 28px;
+}
+
+.footer-social-v3{
+    grid-area:social;
+    display:grid !important;
+    grid-template-columns:repeat(2,42px);
+    gap:9px !important;
+    justify-content:end !important;
+    align-content:start;
+    direction:ltr;
+}
+.footer-social-v3 .social-link{
+    width:42px !important;
+    height:42px !important;
+    border-radius:50% !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-decoration:none;
+    font-size:17px !important;
+    border:0 !important;
+    transition:.22s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
+}
+.footer-social-v3 .social-link:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+.footer-social-v3 .whatsapp{
+    background:#25d366 !important;
+    color:#fff !important;
+}
+.footer-social-v3 .facebook{
+    background:#1877f2 !important;
+    color:#fff !important;
+}
+.footer-social-v3 .instagram{
+    background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888) !important;
+    color:#fff !important;
+}
+.footer-social-v3 .tiktok{
+    background:#111 !important;
+    color:#fff !important;
+    border:1px solid #3a3a3a !important;
+}
+
+/* Keep "Order now" gold and independent from footer WhatsApp */
+.btn-card,
+.order-btn,
+.order-now,
+.whatsapp-order-btn{
+    background:linear-gradient(135deg,#d4af37,#ecd173) !important;
+    color:#171717 !important;
+    border-color:#d4af37 !important;
+}
+
+/* Mobile */
+@media(max-width:760px){
+    .footer-layout-v3{
+        grid-template-columns:1fr auto !important;
+        grid-template-areas:
+            "brand social"
+            "contact contact";
+        gap:20px 16px !important;
+    }
+    .footer-brand-v3 .footer-logo{
+        width:72px !important;
+        height:72px !important;
+    }
+    .footer-social-v3{
+        grid-template-columns:repeat(2,38px);
+    }
+    .footer-social-v3 .social-link{
+        width:38px !important;
+        height:38px !important;
+    }
+    .footer-contact-v3{
+        padding-top:4px;
+        border-top:1px solid rgba(247,242,232,.12);
+    }
+    .reviews-section .section-title,
+    .reviews-section .section-subtitle{
+        padding-right:4px;
+    }
+}
+</style>
+
 </head>
 
 
@@ -2782,8 +3031,7 @@ footer::before{display:none !important}
             <button class="scroll-arrow price-next" type="button" aria-label="التالي">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
-            <div class="scroll-dots price-dots" aria-hidden="true"></div>
-            <span class="scroll-label">حرّكي القائمة لمقارنة أنواع الأسعار</span>
+            <span class="scroll-label price-scroll-label">حرّك القائمة</span>
             <button class="scroll-arrow price-prev" type="button" aria-label="السابق">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
@@ -3000,7 +3248,7 @@ footer::before{display:none !important}
         aria-label="افتح مساعد رونق"
         title="مساعد رونق"
     >
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <i class="fa-solid fa-pen-nib"></i><span class="ai-toggle-sparkles" aria-hidden="true">✦ ✧</span>
     </button>
 
     <section
@@ -3175,36 +3423,82 @@ footer::before{display:none !important}
 
 
     <footer id="contact">
-        <div class="footer-compact">
-            <div class="footer-brand">
+        <div class="footer-compact footer-layout-v3">
+
+            <div class="footer-brand footer-brand-v3">
                 <img class="footer-logo" src="assets/rawnaq-logo.jpeg" alt="Rawnaq Perfumes">
-                <div>
+                <div class="footer-brand-copy">
                     <h3>رونق للعطور والمسكات</h3>
-                    <p>اختيارات عطرية أنيقة، طلب سريع وخدمة قريبة منك.</p>
+                    <p>اختيارات عطرية أنيقة بلمسة تليق بيك.</p>
                 </div>
             </div>
 
-            <div class="footer-contact-list">
-                <a href="https://api.whatsapp.com/send?phone=201067588931" target="_blank" rel="noopener noreferrer">
+            <div class="footer-contact-v3">
+                <h4>تواصل معنا</h4>
+
+                <div class="footer-contact-list">
+                    <a href="tel:01067588931">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>01067588931</span>
+                    </a>
+
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>مصر</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-clock"></i>
+                        <span>متاحون لخدمتك يومياً</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-social footer-social-v3" aria-label="روابط التواصل">
+                <a
+                    class="social-link whatsapp"
+                    href="#"
+                    data-whatsapp-group-placeholder="true"
+                    aria-label="مجموعة واتساب"
+                    title="مجموعة واتساب"
+                >
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>01067588931</span>
                 </a>
-                <div>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>مصر</span>
-                </div>
-                <div>
-                    <i class="fa-solid fa-clock"></i>
-                    <span>متاحون لخدمتك يومياً</span>
-                </div>
+
+                <a
+                    class="social-link facebook"
+                    href="https://www.facebook.com/share/1bGxj2MaW6/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    title="Facebook"
+                >
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a
+                    class="social-link instagram"
+                    href="https://www.instagram.com/rawnaq_perfume10?igsh=NWxlazBocHJkNmFh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                >
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a
+                    class="social-link tiktok"
+                    href="https://vt.tiktok.com/ZSXr9sehd/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    title="TikTok"
+                >
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
             </div>
 
-            <div class="footer-social">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=201067588931" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
         </div>
 
         <div class="footer-bottom">
@@ -4242,16 +4536,18 @@ const whatsappLink =
         const dots = document.querySelector(dotsSelector);
         const prev = document.querySelector(prevSelector);
         const next = document.querySelector(nextSelector);
-        if (!scroller || !dots) return;
+        if (!scroller) return;
 
         const items = [...scroller.querySelectorAll(itemSelector)];
         if (!items.length) return;
 
-        dots.innerHTML = items.map((_, i) =>
-            `<button type="button" aria-label="انتقال ${i + 1}"></button>`
-        ).join("");
-
-        const dotButtons = [...dots.querySelectorAll("button")];
+        let dotButtons = [];
+        if (dots) {
+            dots.innerHTML = items.map((_, i) =>
+                `<button type="button" aria-label="انتقال ${i + 1}"></button>`
+            ).join("");
+            dotButtons = [...dots.querySelectorAll("button")];
+        }
 
         const nearestIndex = () => {
             const center = scroller.scrollLeft + scroller.clientWidth / 2;
@@ -4305,6 +4601,21 @@ const whatsappLink =
         ".price-next",
         ".price-card"
     );
+})();
+</script>
+
+
+<script id="rawnaq-footer-v3-js">
+(() => {
+    const groupLink = document.querySelector('[data-whatsapp-group-placeholder="true"]');
+    if (groupLink) {
+        groupLink.addEventListener("click", (event) => {
+            if (groupLink.getAttribute("href") === "#") {
+                event.preventDefault();
+                alert("ضيفي رابط جروب الواتساب هنا مرة واحدة، وبعدها الأيقونة هتدخل على الجروب مباشرة.");
+            }
+        });
+    }
 })();
 </script>
 
