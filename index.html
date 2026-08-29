@@ -4566,7 +4566,7 @@ const whatsappLink =
     <script>
         (() => {
 
-            const API_BASE_URL = "";
+            const API_BASE_URL = window.RAWNAQ_API_BASE_URL || "";
 
             const WHATSAPP_NUMBER = "201067588931";
 
@@ -4594,6 +4594,7 @@ const whatsappLink =
             let excludedProducts = [];
             let lastQuery = "";
             let isLoading = false;
+            let conversationContext = {};
 
 
             function escapeHtml(value) {

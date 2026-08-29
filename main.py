@@ -1,159 +1,60 @@
-from typing import Any
-
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel,Field
+from backend.search import search_perfumes,detect
+from backend.generate_advice import generate_advice
 
-from generate_advice import generate_advice
-from search import search_perfumes
-from settings import CORS_ORIGINS
-
-
-app = FastAPI(
-    title="Rawnaq Perfume Recommendation API",
-    version="1.0.0",
-)
-
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=CORS_ORIGINS,
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
+BASE=Path(__file__).resolve().parent.parent
+FRONT=BASE/'frontend'
+app=FastAPI(title='Rawnaq Perfume Recommendation API',version='1.0.0')
+app.add_middleware(CORSMiddleware,allow_origins=['*'],allow_methods=['*'],allow_headers=['*'])
 
 class AskRequest(BaseModel):
-    query: str = Field(
-        min_length=1,
-        max_length=500,
-    )
+    query:str=Field(min_length=1)
+    exclude:list[str]=[]
+    context:dict={}
 
-    exclude: list[str] = Field(
-        default_factory=list
-    )
+def fmt(p):
+    return {'name':p.get('name'),'type':p.get('type'),'season':p.get('season'),'scent_family':p.get('scent_family'),'price_premium_50ml':p.get('price_premium_50ml')}
 
+def natural(q):
+    s=' '.join(q.strip().lower().split())
+    if 'السلام عليكم' in s: return 'وعليكم السلام ورحمة الله وبركاته 🤍 أهلاً بحضرتك في رونق للعطور، أقدر أساعد حضرتك إزاي؟'
+    if any(x in s for x in ['اهلا','أهلا','هاي','hello','hi']) and len(s.split())<=4: return 'أهلاً بحضرتك في رونق للعطور 🤍 منورنا، أقدر أساعد حضرتك إزاي؟'
+    if 'صباح الخير' in s: return 'صباح النور على حضرتك 🤍 أهلاً بيك في رونق. تحب أساعدك في اختيار عطر مناسب؟'
+    if 'مساء الخير' in s: return 'مساء النور على حضرتك 🤍 أهلاً بيك في رونق. أقدر أساعد حضرتك إزاي؟'
+    if any(x in s for x in ['ازيك','إزيك','عامل ايه','عامله ايه','اخبارك']): return 'الحمد لله بخير 🤍 منور رونق. تحب أساعدك تختار عطر مناسب ليك؟'
+    if any(x in s for x in ['ساعدني','ساعديني','محتاج مساعده','محتاج مساعدة','عايز مساعدة']): return 'طبعاً، أنا موجود لمساعدتك ✨ قولي العطر لمين أو بتحب أي نوع من الروائح، ونختار سوا.'
+    if any(x in s for x in ['شكرا','شكراً','متشكر','ميرسي','thanks']): return 'العفو، تحت أمرك في أي وقت 🤍 ونورت رونق.'
+    if s in {'اه','ايوه','أيوه','تمام','ماشي','اوكي','أوكي','okay'}: return 'تمام 🤍 قولي تحب أساعدك تختار عطر، ولا عندك اسم عطر معين بتدور عليه؟'
+    if s in {'لا','لأ'}: return 'تمام، تحت أمرك 🤍 لو احتجت أي مساعدة في العطور أنا موجود.'
 
-def clean_value(value: Any):
-    if value in (None, ""):
-        return None
+@app.get('/api/health')
+def health(): return {'status':'ok','service':'Rawnaq FastAPI'}
 
-    return value
+@app.post('/ask')
+def ask(r:AskRequest):
+    n=natural(r.query)
+    if n: return {'query':r.query,'product':None,'advice':n,'other_products':[],'has_more':False,'context':r.context}
+    res,ctx=search_perfumes(r.query,10,r.exclude,r.context)
+    if not res:
+        msg='مش لاقي اختيار مطابق للوصف ده حاليًا 🤍 بس أقدر أساعدك بطريقة تانية.' if (detect(r.query) or ctx) else 'أقدر أساعدك إزاي؟ ✨ ممكن تسألني عن اسم عطر أو تقولي مثلاً: صيفي حريمي، رجالي فريش.'
+        return {'query':r.query,'product':None,'advice':msg,'other_products':[],'has_more':False,'context':ctx}
+    top=res[0]
+    return {'query':r.query,'product':fmt(top),'advice':generate_advice(r.query,top),'other_products':[fmt(p) for p in res[1:3]],'has_more':len(res)>1,'context':ctx}
 
+app.mount('/assets',StaticFiles(directory=FRONT/'assets'),name='assets')
 
-def format_product(product_dict):
-    return {
-        "name": clean_value(
-            product_dict.get(
-                "اسم_المنتج"
-            )
-        ),
+@app.get('/catalog.js')
+def catalog(): return FileResponse(FRONT/'catalog.js',media_type='application/javascript')
 
-        "type": clean_value(
-            product_dict.get(
-                "النوع"
-            )
-        ),
+@app.get('/')
+def home(): return FileResponse(FRONT/'index.html')
 
-        "season": clean_value(
-            product_dict.get(
-                "الموسم"
-            )
-        ),
-
-        "scent_family": clean_value(
-            product_dict.get(
-                "التصنيف العطري"
-            )
-        ),
-
-        "price_premium_50ml":
-            clean_value(
-                product_dict.get(
-                    "بريميوم 50 مل"
-                )
-            ),
-    }
-
-
-@app.post("/ask")
-def ask(request: AskRequest):
-    query = request.query.strip()
-
-    results = search_perfumes(
-        query,
-        top_k=10,
-    )
-
-    excluded = {
-        name.strip()
-        for name in request.exclude
-        if name and name.strip()
-    }
-
-    filtered = [
-        match
-        for match in results
-        if (
-            match["product"]
-            .get("اسم_المنتج")
-            not in excluded
-        )
-    ]
-
-    if not filtered:
-        return {
-            "query": query,
-            "product": None,
-            "advice":
-                "للأسف مفيش عطور تانية "
-                "تناسب طلبك في الوقت الحالي.",
-
-            "other_products": [],
-            "has_more": False,
-        }
-
-    top_match = filtered[0]
-    backup_matches = filtered[1:3]
-
-    advice = generate_advice(
-        query,
-        [top_match],
-    )
-
-    return {
-        "query": query,
-
-        "product":
-            format_product(
-                top_match["product"]
-            ),
-
-        "advice": advice,
-
-        "other_products": [
-            format_product(
-                match["product"]
-            )
-            for match in backup_matches
-        ],
-
-        "has_more":
-            len(filtered) > 1,
-    }
-
-
-@app.get("/")
-def health_check():
-    return {
-        "status": "ok",
-        "message":
-            "Rawnaq Perfume Recommendation "
-            "API is running!",
-    }
-
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+@app.get('/{path:path}')
+def fallback(path:str):
+    f=FRONT/path
+    return FileResponse(f if f.exists() and f.is_file() else FRONT/'index.html')

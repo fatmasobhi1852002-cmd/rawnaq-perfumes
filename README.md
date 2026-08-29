@@ -1,10 +1,21 @@
-# Rawnaq Perfumes — Premium V10 Working Filters
+# Rawnaq FastAPI V11
 
-تم إصلاح فلاتر الفئات:
-- الضغط على «مخمريات» يعرض المنتجات المصنفة كمخمريات فقط.
-- الضغط على «لوشن» يعرض منتجات اللوشن فقط.
-- تم إرجاع أيقونات الفئات العادية بدل وضع صورة المنتج داخل الأيقونة.
-- The Only One (D&G) مصنف ضمن المخمريات حسب الصورة التي أرسلها المستخدم.
-- مسك كعبة + سوفاج مصنفان ضمن اللوشن حسب الصور التي أرسلها المستخدم.
-- يتم مسح بحث المنتجات عند الضغط على فئة جديدة حتى لا يمنع ظهور المنتجات.
-- باقي تعديلات V8/V9 محفوظة.
+FastAPI is now a real backend in the project.
+
+## Run
+1. `python -m venv .venv`
+2. Windows: `.venv\Scripts\activate`
+3. `pip install -r requirements.txt`
+4. `python -m uvicorn backend.main:app --reload`
+5. Open `http://127.0.0.1:8000`
+
+## API
+- `GET /api/health`
+- `POST /ask`
+
+Example request:
+```json
+{"query":"عايزة عطر صيفي حريمي","exclude":[],"context":{}}
+```
+
+Gemini is optional. Add `GEMINI_API_KEY` to the environment to enable AI-generated advice. Without it, FastAPI still works with local recommendation replies.
