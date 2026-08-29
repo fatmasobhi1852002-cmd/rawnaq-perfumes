@@ -2735,6 +2735,265 @@ footer{
 }
 </style>
 
+
+<style id="rawnaq-premium-v4">
+
+/* IMPORTANT: preserve Font Awesome fonts after the global Arabic font override */
+.fa,
+.fas,
+.far,
+.fal,
+.fat,
+.fa-solid,
+.fa-regular{
+    font-family:"Font Awesome 6 Free" !important;
+    font-style:normal !important;
+}
+.fab,
+.fa-brands{
+    font-family:"Font Awesome 6 Brands" !important;
+    font-style:normal !important;
+}
+.fa-solid,
+.fas{
+    font-weight:900 !important;
+}
+.fa-regular,
+.far{
+    font-weight:400 !important;
+}
+.fa-brands,
+.fab{
+    font-weight:400 !important;
+}
+
+/* Search icon should be clean gold, no tiny square/background */
+.search-box i,
+.search-icon,
+.search-box .fa-magnifying-glass{
+    color:#d4af37 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    width:auto !important;
+    height:auto !important;
+    padding:0 !important;
+    font-size:16px !important;
+}
+
+/* No extra icon/box beside Order Now */
+.btn-card i,
+.order-btn i,
+.order-now i,
+.whatsapp-order-btn i{
+    display:none !important;
+}
+.btn-card::before,
+.btn-card::after,
+.order-btn::before,
+.order-btn::after,
+.order-now::before,
+.order-now::after,
+.whatsapp-order-btn::before,
+.whatsapp-order-btn::after{
+    content:none !important;
+}
+
+/* Pricing titles: no tiny decorative glyph */
+.price-card h3 i,
+.price-card h3::before,
+.price-card h3::after{
+    display:none !important;
+    content:none !important;
+}
+
+/* Price scroll helper: text only, no arrows or boxes */
+.price-scroll-head .price-next,
+.price-scroll-head .price-prev{
+    display:none !important;
+}
+.price-scroll-head{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    min-height:auto !important;
+    margin:2px auto 12px !important;
+}
+.price-scroll-head .scroll-label{
+    color:#efe7da !important;
+    font-size:12px !important;
+    padding:0 !important;
+}
+
+/* Category scroll: visual style close to reference image */
+.category-scroll{
+    gap:16px !important;
+    padding:10px 6px 13px !important;
+}
+.category-item{
+    min-width:68px !important;
+}
+.category-icon{
+    width:58px !important;
+    height:58px !important;
+    border-radius:50% !important;
+    border:1px solid rgba(212,175,55,.48) !important;
+    background:rgba(247,242,232,.07) !important;
+    color:#d4af37 !important;
+    box-shadow:inset 0 0 0 1px rgba(247,242,232,.025) !important;
+}
+.category-icon i{
+    font-size:18px !important;
+}
+.category-item.active .category-icon{
+    background:#d4af37 !important;
+    color:#151515 !important;
+    box-shadow:0 0 18px rgba(212,175,55,.24) !important;
+}
+.category-item span{
+    font-size:11px !important;
+    color:#f0e8da !important;
+}
+.category-item.active span{
+    color:#d4af37 !important;
+}
+
+/* Keep category dots elegant; no arrow boxes */
+.category-prev,
+.category-next{
+    display:none !important;
+}
+.categories-wrapper .horizontal-section-head{
+    justify-content:center !important;
+    gap:10px !important;
+    margin-bottom:0 !important;
+}
+.categories-wrapper .scroll-dots button{
+    width:7px !important;
+    height:7px !important;
+    border-radius:50% !important;
+    background:#777 !important;
+}
+.categories-wrapper .scroll-dots button.active{
+    width:24px !important;
+    height:8px !important;
+    background:#d4af37 !important;
+    border-radius:8px !important;
+}
+
+/* Reviews heading: right aligned but with breathing space from edge */
+.reviews-section .section-title,
+.reviews-section .section-subtitle{
+    text-align:right !important;
+    width:min(100% - 44px, 1050px) !important;
+    margin-right:auto !important;
+    margin-left:auto !important;
+    padding-right:0 !important;
+}
+.reviews-section .section-title::after{
+    margin-right:0 !important;
+    margin-left:auto !important;
+}
+@media(max-width:760px){
+    .reviews-section .section-title,
+    .reviews-section .section-subtitle{
+        width:calc(100% - 32px) !important;
+    }
+}
+
+/* Contact icons: clean icon per line, gold icon + off-white text */
+.footer-contact-list > a,
+.footer-contact-list > div{
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    color:#f7f2e8 !important;
+}
+.footer-contact-list i{
+    width:20px !important;
+    height:20px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    color:#d4af37 !important;
+    font-size:15px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+.footer-contact-list span{
+    color:#f7f2e8 !important;
+}
+
+/* Social icons like the reference: gold outlined circles, same tone, lower placement */
+.footer-social-v3{
+    display:flex !important;
+    flex-direction:row !important;
+    gap:13px !important;
+    align-self:start !important;
+    margin-top:34px !important;
+    justify-content:flex-start !important;
+    direction:ltr !important;
+}
+.footer-social-v3 .social-link{
+    width:50px !important;
+    height:50px !important;
+    border-radius:50% !important;
+    background:transparent !important;
+    color:#e3bd53 !important;
+    border:1px solid rgba(227,189,83,.62) !important;
+    box-shadow:
+        inset 0 0 0 1px rgba(227,189,83,.08),
+        0 0 12px rgba(227,189,83,.06) !important;
+    font-size:20px !important;
+}
+.footer-social-v3 .social-link:hover{
+    background:rgba(212,175,55,.10) !important;
+    color:#f4d66d !important;
+    border-color:#d4af37 !important;
+    transform:translateY(-2px) !important;
+}
+.footer-social-v3 .whatsapp,
+.footer-social-v3 .facebook,
+.footer-social-v3 .instagram,
+.footer-social-v3 .tiktok{
+    background:transparent !important;
+    color:#e3bd53 !important;
+    border:1px solid rgba(227,189,83,.62) !important;
+}
+
+/* Footer layout refinements */
+.footer-brand-v3{
+    align-items:flex-start !important;
+}
+.footer-contact-v3 h4{
+    color:#f7f2e8 !important;
+}
+@media(max-width:760px){
+    .footer-social-v3{
+        margin-top:16px !important;
+        flex-wrap:wrap !important;
+    }
+    .footer-social-v3 .social-link{
+        width:44px !important;
+        height:44px !important;
+        font-size:18px !important;
+    }
+}
+
+/* AI pen icon also depends on Font Awesome fix */
+.ai-chat-toggle .fa-pen-nib{
+    font-family:"Font Awesome 6 Free" !important;
+    font-weight:900 !important;
+}
+
+/* Never show fallback/broken glyph boxes in pricing/category helpers */
+.price-scroll-head .fa-chevron-left,
+.price-scroll-head .fa-chevron-right{
+    display:none !important;
+}
+</style>
+
 </head>
 
 
@@ -2830,15 +3089,9 @@ footer{
             <div class="categories-wrapper">
 
                 <div class="horizontal-section-head">
-                    <button class="scroll-arrow category-next" type="button" aria-label="التالي">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
                     <div class="scroll-dots category-dots" aria-hidden="true"></div>
-                    <span class="scroll-label">اسحبي للتنقل بين الأقسام</span>
-                    <button class="scroll-arrow category-prev" type="button" aria-label="السابق">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                </div>
+                    <span class="scroll-label">اسحب للتنقل بين الأقسام</span>
+                    </div>
 
                 <div class="category-scroll" id="category-scroll">
 
@@ -3028,14 +3281,8 @@ footer{
 
 
         <div class="horizontal-section-head price-scroll-head">
-            <button class="scroll-arrow price-next" type="button" aria-label="التالي">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
             <span class="scroll-label price-scroll-label">حرّك القائمة</span>
-            <button class="scroll-arrow price-prev" type="button" aria-label="السابق">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-        </div>
+            </div>
 
         <div class="price-tables-grid" id="price-scroll">
 
@@ -3043,7 +3290,7 @@ footer{
             <div class="price-card">
 
                 <h3>
-                    <i class="fa-solid fa-spray-can"></i>
+                    
                     العطور العادية
                 </h3>
                 <p class="price-card-desc">للروائح الأساسية المتوفرة يومياً بأكثر من حجم وزجاجة.</p>
@@ -3109,7 +3356,7 @@ footer{
             <div class="price-card">
 
                 <h3>
-                    <i class="fa-solid fa-gem"></i>
+                    
                     الإصدارات الخاصة
                 </h3>
                 <p class="price-card-desc">للتركيبات والإصدارات المميزة مثل خمرة وأربابورا وعود مضاوي.</p>
@@ -3175,7 +3422,7 @@ footer{
             <div class="price-card">
 
                 <h3>
-                    <i class="fa-solid fa-bottle-droplet"></i>
+                    
                     رول المسك
                 </h3>
                 <p class="price-card-desc">مسكات رول بأحجام صغيرة مناسبة للاستخدام اليومي والتوزيعات.</p>
@@ -3462,7 +3709,6 @@ footer{
                     aria-label="مجموعة واتساب"
                     title="مجموعة واتساب"
                 >
-                    <i class="fa-brands fa-whatsapp"></i>
                 </a>
 
                 <a
@@ -4033,9 +4279,7 @@ const whatsappLink =
     target="_blank"
     rel="noopener noreferrer"
     class="btn-card"
->
-    <i class="fa-brands fa-whatsapp"></i>
-    اطلب الآن
+>اطلب الآن
 </a>
                     </div>
 
