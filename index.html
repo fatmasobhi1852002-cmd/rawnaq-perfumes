@@ -3117,6 +3117,21 @@ footer{
 }
 </style>
 
+
+<style id="rawnaq-chat-v7-css">
+.ai-chat-reset{
+    width:30px;height:30px;border-radius:50%;
+    border:1px solid rgba(212,175,55,.28);
+    background:rgba(212,175,55,.06);
+    color:#d4af37;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;
+}
+.ai-chat-reset i{
+    font-family:"Font Awesome 6 Free" !important;
+    font-weight:900 !important;
+}
+</style>
+
 </head>
 
 
@@ -4976,6 +4991,23 @@ const whatsappLink =
 
 
 
+
+
+<script id="rawnaq-chat-v7-js">
+(() => {
+  const resetBtn = document.getElementById("ai-chat-reset");
+  const messages = document.getElementById("ai-chat-messages");
+  resetBtn?.addEventListener("click", () => {
+    window.resetRawnaqChat?.();
+    if (typeof excludedProducts !== "undefined" && Array.isArray(excludedProducts)) {
+      excludedProducts.length = 0;
+    }
+    if (messages) {
+      messages.innerHTML = '<div class="ai-message bot">أهلاً بيك في مساعد رونق ✨<br>أنا موجود لمساعدتك تختار العطر المناسب.<br>قولي مثلاً: صيفي حريمي، رجالي فريش، أو اكتب اسم العطر.</div>';
+    }
+  });
+})();
+</script>
 
 </body>
 
